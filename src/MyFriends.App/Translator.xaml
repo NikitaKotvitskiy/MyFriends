@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriends.App.Translator"
+             Title="Translator">
+    
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="25">
+        <Label 
+            Text="Here you can translate letters to digits."
+            Style="{StaticResource Headline}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            Text="Isn't it the best thing you could do ever?"
+            Style="{StaticResource SubHeadline}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Entry
+            x:Name="UserInput"
+            VerticalOptions="Center"
+            BackgroundColor="AliceBlue"
+            HorizontalTextAlignment="Center"/>
+        <Button
+            Text="Translate"
+            Clicked="DoTranslate" />
+
+        <Frame
+            BackgroundColor="AliceBlue"
+            Padding="10">
+            <Label
+                x:Name="TranslatedText"
+                HorizontalTextAlignment="Center"/>
+        </Frame>
+    </VerticalStackLayout>
+    
+</ContentPage>
