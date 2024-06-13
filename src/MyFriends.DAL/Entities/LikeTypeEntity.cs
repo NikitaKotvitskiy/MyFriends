@@ -1,8 +1,10 @@
-﻿namespace MyFriends.DAL.Entities
+﻿using MongoDB.Bson;
+
+namespace MyFriends.DAL.Entities
 {
     public record LikeTypeEntity : IEntity
     {
-        public required Guid Id { get; set; }
+        public required ObjectId Id { get; set; }
         public required string Type { get; set; }
     }
 }

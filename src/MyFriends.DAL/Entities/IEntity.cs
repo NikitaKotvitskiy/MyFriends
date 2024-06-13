@@ -1,7 +1,9 @@
-﻿namespace MyFriends.DAL.Entities
+﻿using MongoDB.Bson;
+
+namespace MyFriends.DAL.Entities
 {
     internal interface IEntity
     {
-        public Guid Id { get; set; }
+        public ObjectId Id { get; set; }
     }
 }
