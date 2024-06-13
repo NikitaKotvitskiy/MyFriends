@@ -1,10 +1,5 @@
-﻿using MongoDB.Bson;
-using MyFriends.DAL.Entities;
-using MyFriends.DAL.Repositories;
-using MyFriends.DAL.Test.TestSeeds;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using MyFriends.DAL.Test.TestSeeds;
+
 namespace MyFriends.DAL.Test
 {
     public static class TestData
@@ -14,6 +9,8 @@ namespace MyFriends.DAL.Test
             var context = new MongoDbContext("mongodb://localhost:27017", "MyFriendsTestDb");
             await context.DropDatabaseAsync();
             FriendEntityTestSeed.Seed(context);
+            LikeTypeEntityTestSeed.Seed(context);
+            LikesEntityTestSeed.Seed(context);
 
             return context;
         }

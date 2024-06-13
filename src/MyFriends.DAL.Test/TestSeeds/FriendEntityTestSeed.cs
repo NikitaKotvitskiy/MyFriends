@@ -1,11 +1,5 @@
 ﻿using MongoDB.Bson;
 using MyFriends.DAL.Entities;
-using MyFriends.DAL.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyFriends.DAL.Test.TestSeeds
 {
@@ -51,16 +45,23 @@ namespace MyFriends.DAL.Test.TestSeeds
             Name = "Name6"
         };
 
+        public static readonly FriendEntity friendEntity_LikeTest2 = new FriendEntity()
+        {
+            Id = ObjectId.GenerateNewId(),
+            Name = "Name6"
+        };
+
         public static void Seed(MongoDbContext db)
         {
             var collection = db.GetCollection<FriendEntity>();
-            collection.InsertMany([
+            collection.InsertManyAsync([
                 friendEntity_FriendTest_Delete,
                 friendEntity_FriendTest_Update,
                 friendEntity_FriendTest_GetAll,
                 friendEntity_FriendTest_GetById,
                 friendEntity_RelationTest,
-                friendEntity_LikeTest
+                friendEntity_LikeTest,
+                friendEntity_LikeTest2
                 ]);
         }
     }
