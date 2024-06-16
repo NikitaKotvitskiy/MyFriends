@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFriends.App", "MyFriends.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFriends.DAL", "..\MyFriends.DAL\MyFriends.DAL.csproj", "{A36DB0D9-1455-47BF-BE5D-C8D63DF0D990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFriends.DAL.Test", "..\MyFriends.DAL.Test\MyFriends.DAL.Test.csproj", "{9255B062-CE41-4FED-858E-96584300404E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFriends.DAL.Test", "..\MyFriends.DAL.Test\MyFriends.DAL.Test.csproj", "{9255B062-CE41-4FED-858E-96584300404E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFriends.BL", "..\MyFriends.BL\MyFriends.BL.csproj", "{9F2BC5D3-CFA2-448B-BB4A-88DE8CA31747}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{9255B062-CE41-4FED-858E-96584300404E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9255B062-CE41-4FED-858E-96584300404E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9255B062-CE41-4FED-858E-96584300404E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2BC5D3-CFA2-448B-BB4A-88DE8CA31747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2BC5D3-CFA2-448B-BB4A-88DE8CA31747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2BC5D3-CFA2-448B-BB4A-88DE8CA31747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2BC5D3-CFA2-448B-BB4A-88DE8CA31747}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
