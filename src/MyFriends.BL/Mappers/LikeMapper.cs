@@ -15,6 +15,13 @@ namespace MyFriends.BL.Mappers
                 Type = typeEntity.Type
             };
 
+        public LikeTypeListModel MapToLikeTypeListModel(LikeTypeEntity typeEntity) =>
+            LikeTypeListModel.Empty with
+            {
+                Id = typeEntity.Id,
+                Type = typeEntity.Type
+            };
+
         public LikeTypeEntity MapToLikeTypeEntity(LikeListModel model) =>
             new()
             {
