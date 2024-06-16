@@ -5,6 +5,7 @@ namespace MyFriends.BL.Models
     public record FriendListModel : IModel
     {
         public required ObjectId Id { get; set; }
+
         public required string Name { get; set; }
         public string? Surname { get; set; }
 

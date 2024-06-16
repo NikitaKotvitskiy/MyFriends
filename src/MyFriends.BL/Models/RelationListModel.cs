@@ -4,17 +4,20 @@ namespace MyFriends.BL.Models
 {
     public record RelationListModel : IModel
     {
-        public required ObjectId Id { get; set; }
+        public required ObjectId RelationId { get; set; }
+        public required ObjectId FromFriendId { get; set; }
+        public required ObjectId ToFriendId { get; set; }
+
         public required string Type { get; set; }
-        public required ObjectId FriendId { get; set; }
         public required string FriendName { get; set; }
         public string? FriendSurname { get; set; }
 
         public static RelationListModel Empty => new()
         {
-            Id = default(ObjectId),
+            RelationId = default(ObjectId),
+            FromFriendId = default(ObjectId),
+            ToFriendId = default(ObjectId),
             Type = String.Empty,
-            FriendId = default(ObjectId),
             FriendName = String.Empty
         };
     }
