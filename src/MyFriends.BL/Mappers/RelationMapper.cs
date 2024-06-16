@@ -12,7 +12,8 @@ namespace MyFriends.BL.Mappers
                 FromFriendId = relationEntity.FromFriendId,
                 ToFriendId = relationEntity.ToFriendId,
                 FriendName = toFriendEntity.Name,
-                FriendSurname = toFriendEntity.Surname
+                FriendSurname = toFriendEntity.Surname,
+                Type = relationType.Type
             };
 
         public RelationEntity MatToRealtionEntity(RelationListModel model) =>
@@ -20,7 +21,8 @@ namespace MyFriends.BL.Mappers
             {
                 Id = model.RelationId,
                 FromFriendId = model.FromFriendId,
-                ToFriendId = model.ToFriendId
+                ToFriendId = model.ToFriendId,
+                RelationTypeId = model.RelationTypeId
             };
 
         public RelationTypeEntity MapToRelationTypeEntity(RelationListModel model) =>
