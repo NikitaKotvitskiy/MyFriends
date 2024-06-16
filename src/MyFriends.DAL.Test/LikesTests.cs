@@ -61,7 +61,7 @@ namespace MyFriends.DAL.Test
         }
 
         [Test]
-        public async Task InsertTwice()
+        public async Task LikesTest_InsertTwice()
         {
             // Arrange
             var repo = new Repository<LikesEntity>(_db);
