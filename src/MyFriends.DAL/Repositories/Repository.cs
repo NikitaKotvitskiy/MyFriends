@@ -8,19 +8,39 @@ namespace MyFriends.DAL.Repositories
     {
         private IMongoCollection<TEntity> collection = context.GetCollection<TEntity>();
 
-        public async Task DeleteByIdAsync(ObjectId id) =>
-            await collection.DeleteOneAsync(i => i.Id == id);
+        public async Task<bool> DeleteByIdAsync(ObjectId id)
+        {
+            var result = await collection.DeleteOneAsync(i => i.Id == id);
+            if (result.DeletedCount == 0)
+                return false;
+            return true;
+        }
 
         public async Task<List<TEntity>> GetAsync() =>
             await collection.Find(i => true).ToListAsync();
 
         public async Task<TEntity> GetByIdAsync(ObjectId id) =>
-            await collection.Find(i => i.Id == id).FirstOrDefaultAsync();
+          await collection.Find(i => i.Id == id).FirstOrDefaultAsync();
 
-        public async Task InsertAsync(TEntity entity) =>
-            await collection.InsertOneAsync(entity);
+        public async Task<ObjectId?> InsertAsync(TEntity entity)
+        {
+            try
+            {
+                await collection.InsertOneAsync(entity);
+                return entity.Id;
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
-        public async Task UpdateAsync(TEntity entity) =>
-            await collection.ReplaceOneAsync(i => i.Id == entity.Id, entity);
+        public async Task<bool> UpdateAsync(TEntity entity)
+        {
+            var result = await collection.ReplaceOneAsync(i => i.Id == entity.Id, entity);
+            if (result.ModifiedCount == 0) 
+                return false;
+            return true;
+        }
     }
 }

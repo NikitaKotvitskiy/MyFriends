@@ -59,5 +59,18 @@ namespace MyFriends.DAL.Test
             // Assert
             Assert.That(likesList, !Does.Contain(deleted));
         }
+
+        [Test]
+        public async Task InsertTwice()
+        {
+            // Arrange
+            var repo = new Repository<LikesEntity>(_db);
+
+            // Act
+            var result = await repo.InsertAsync(LikesEntityTestSeed.likesEntity_LikeTest_GetAllByFriend1);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(null));
+        }
     }
 }
