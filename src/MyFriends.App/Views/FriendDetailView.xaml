@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:MyFriends.App.Converters"
+             x:Class="MyFriends.App.Views.FriendDetailView"
+             Title="" >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NameConverter x:Key="NameConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Label
+            Grid.Row="0">
+            <Label.Text>
+                <MultiBinding Converter="{StaticResource NameConverter}">
+                    <Binding Path="Friend.Name" />
+                    <Binding Path="Friend.Surname" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
+
+        <Frame
+            Grid.Row="1">
+            <ScrollView>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="Birth Date:" />
+                        <Label Text="Country:" />
+                        <Label Text="City:" />
+                        <Label Text="Address:" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Path=Friend.DateOfBirth}" />
+                        <Label Text="{Binding Path=Friend.Country}" />
+                        <Label Text="{Binding Path=Friend.City}" />
+                        <Label Text="{Binding Path=Friend.Address}" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </ScrollView>
+        </Frame>
+
+        <HorizontalStackLayout
+            Grid.Row="2">
+            <Button
+                Text="Likes" />
+            <Button
+                Text="Relations" />
+            <Button
+                Command="{Binding Path=EditCommand}"
+                Text="Edit" />
+            <Button
+                Command="{Binding Path=DeleteFriendCommand}"
+                Text="Delete" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

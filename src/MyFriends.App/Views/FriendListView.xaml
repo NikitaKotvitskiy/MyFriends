@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:MyFriends.App.Converters"
+             x:Class="MyFriends.App.Views.FriendListView"
+             xmlns:local="clr-namespace:MyFriends.App.Views"
+             xmlns:viewmodel="clr-namespace:MyFriends.App.ViewModels"
+             xmlns:m="clr-namespace:MyFriends.BL.Models;assembly=MyFriends.BL"
+             x:DataType="viewmodel:FriendListViewModel"
+             x:Name="FriendListViewRoot"
+             Title="">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NameConverter x:Key="NameConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Label
+            Text="My friends"
+            Grid.Row="0" />
+
+        <Frame Grid.Row="1">
+            <CollectionView ItemsSource="{Binding Friends}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:FriendListModel">
+                        <Button
+                            Command="{Binding BindingContext.ChooseFriendCommand, Source={x:Reference FriendListViewRoot}}"
+                            CommandParameter="{Binding Path=Id}">
+                            <Button.Text>
+                                <MultiBinding Converter="{StaticResource NameConverter}">
+                                    <Binding Path="Name" />
+                                    <Binding Path="Surname" />
+                                </MultiBinding>
+                            </Button.Text>
+                        </Button>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Frame>
+
+        <Button
+            Text="Add"
+            Command="{Binding AddCommand}"
+            Grid.Row="2" />
+    </Grid>
+
+
+</ContentPage>

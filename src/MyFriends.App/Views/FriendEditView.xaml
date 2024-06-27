@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFriends.App.Views.FriendEditView"
+             Title="">
+    <ScrollView>
+        <Grid RowDefinitions="*, Auto">
+            <Frame
+                Grid.Row="0">
+                <Grid RowDefinitions="*, *, *, *, *, *" ColumnDefinitions="*, *">
+                    <Label
+                        Grid.Row="0" Grid.Column="0"
+                        Text="Name:" />
+                    <Entry
+                        Grid.Row="0" Grid.Column="1"
+                        Text="{Binding Friend.Name}" />
+
+                    <Label
+                        Grid.Row="1" Grid.Column="0"
+                        Text="Surname:" />
+                    <Entry
+                        Grid.Row="1" Grid.Column="1"
+                        Text="{Binding Friend.Surname}" />
+
+                    <Label
+                        Grid.Row="2" Grid.Column="0"
+                        Text="Date of birth:" />
+                    <HorizontalStackLayout
+                        Grid.Row="2" Grid.Column="1">
+                        <DatePicker
+                            x:Name="BirthdayPicker"
+                            Grid.Row="2" Grid.Column="1"
+                            Date="{Binding DateOfBirth}"
+                            IsEnabled="{Binding IsTimePickerActive}" />
+                        <Button 
+                            Text="Leave empty"
+                            Command="{Binding SkipDateOfBirthCommand}"
+                            IsEnabled="{Binding IsLeaveButtonActive}"/>
+                        <Button
+                            Text="Fill"
+                            Command="{Binding EnableDateOfBirthCommand}"
+                            IsEnabled="{Binding IsEnableButtonActive}"/>
+                    </HorizontalStackLayout>
+
+
+                    <Label
+                        Grid.Row="3" Grid.Column="0"
+                        Text="Country:" />
+                    <Entry
+                        Grid.Row="3" Grid.Column="1"
+                        Text="{Binding Friend.Country}" />
+
+                    <Label
+                        Grid.Row="4" Grid.Column="0"
+                        Text="City:" />
+                    <Entry
+                        Grid.Row="4" Grid.Column="1"
+                        Text="{Binding Friend.City}" />
+
+                    <Label
+                        Grid.Row="5" Grid.Column="0"
+                        Text="Address:" />
+                    <Entry
+                        Grid.Row="5" Grid.Column="1"
+                        Text="{Binding Friend.Address}" />
+                </Grid>
+            </Frame>
+
+            <HorizontalStackLayout
+                Grid.Row="1">
+                <Button
+                    Text="Cancel"
+                    Command="{Binding CancelButtonCommand}"/>
+                <Button
+                    Text="Apply"
+                    Command="{Binding ApplyCommand}"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

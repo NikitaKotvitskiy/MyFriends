@@ -12,6 +12,7 @@ namespace MyFriends.BL.Mappers
                 Id = entity.Id,
                 Name = entity.Name,
                 Surname = entity.Surname,
+                DateOfBirth = entity.DateOfBirth,
                 Country = entity.Country,
                 City = entity.City,
                 Address = entity.Address
@@ -31,6 +32,7 @@ namespace MyFriends.BL.Mappers
                 Id = model.Id,
                 Name = model.Name,
                 Surname = model.Surname,
+                DateOfBirth = model.DateOfBirth,
                 Country = model.Country,
                 City = model.City,
                 Address = model.Address
